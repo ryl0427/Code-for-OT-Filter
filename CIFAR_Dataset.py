@@ -146,7 +146,7 @@ def asymmetrical_cifar100(label, noisy_rate):
     for i in range(len(label)):
         a = random.uniform(0,1)
         if a<noisy_rate:
-            change = np.where(coarse_labels==label[i])
+            change = np.where(coarse_labels==coarse_labels(label[i]))
             changed_label = change[0][random.randint(0,4)]
             noisy_label.append(changed_label)
         else:
